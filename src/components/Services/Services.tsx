@@ -1,3 +1,6 @@
+import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from "../ui/dialog";
+import { Link } from 'react-scroll';
+
 const Services = () => {
   const services = [
     {
@@ -8,7 +11,9 @@ const Services = () => {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
         </svg>
       ),
-      dark: true
+      dark: true,
+      desc:"I design interfaces with a strong focus on clarity, performance, and real user behavior — not just visual appeal. My frontend work emphasizes clean layouts, predictable interactions, and responsive performance across devices.",
+      focus:["Component-driven UI architecture","Design → code fidelity (Figma to production)","Performance-aware rendering and state management","Accessibility and interaction feedback"]
     },
     {
       id: 2,
@@ -19,7 +24,9 @@ const Services = () => {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 10l-3 3-3-3" />
         </svg>
       ),
-      dark: false
+      dark: false,
+      desc:"I design backend systems that are built to grow — with clear separation of concerns, predictable data flow, and failure-aware architecture. My focus is on building systems that remain maintainable under scale, not just “working APIs”.",
+      focus:["API and service design","Authentication & authorization flows","Database modeling and query optimization","Event-driven and workflow-based systems","Cost-aware architectural decisions"]
     },
     {
       id: 3,
@@ -29,7 +36,9 @@ const Services = () => {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
         </svg>
       ),
-      dark: false
+      dark: false,
+      desc:"I approach product design from a problem-first perspective — understanding users, defining core value, and shaping features that align with both business goals and technical feasibility.",
+      focus:["Translating ideas into clear product flows","Feature prioritization under constraints","Technical feasibility vs product ambition","Consistent product identity across UI, copy, and interactions"]
     }
   ];
 
@@ -113,9 +122,11 @@ const Services = () => {
               Scroll Down
             </div>
             <button className="w-14 h-14 bg-black text-white rounded-full flex items-center justify-center hover:bg-gray-800 transition-colors">
+              <Link to="exp" smooth={true} duration={5000}>
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
               </svg>
+              </Link>
             </button>
           </div>
 
@@ -144,6 +155,9 @@ const Services = () => {
             {/* Service Cards */}
             <div className="grid grid-cols-3 gap-6">
               {services.map((service) => (
+                  <Dialog key={service.id}>
+
+                <DialogTrigger>
                 <div 
                   key={service.id}
                   className={`${
@@ -170,6 +184,32 @@ const Services = () => {
                     </a>
                   </div>
                 </div>
+                </DialogTrigger>
+                <DialogContent className="bg-white p-10 aspect-square flex flex-col justify-between hover:scale-105 transition-transform cursor-pointer">
+                  <DialogHeader className="flex justify-center items-center w-full">
+                    <DialogTitle className="text-2xl font-bold outfit mb-6 whitespace-normal leading-tight">
+                      {service.title}
+                      </DialogTitle>
+                      <DialogDescription>
+                        <p className="outfit">I design interfaces with a strong focus on clarity, performance, and real user behavior — not just visual appeal. My frontend work emphasizes clean layouts, predictable interactions, and responsive performance across devices.</p>
+                      </DialogDescription>
+                  </DialogHeader>
+                  <div>
+                    <span className="outfit">What I actually focus on :</span>
+                    <ul className="list-disc list-inside mt-4">
+                      {service.focus && service.focus.map((point, index) => (
+                        <li key={index} className="outfit">{point}</li>
+                      ))}
+                    </ul>
+                  </div>
+                      <DialogFooter>
+                    <button className="bg-black outfit cursor-pointer  text-white px-8 py-4 rounded-full text-sm uppercase tracking-wide hover:bg-gray-800 transition-colors">
+                      Let's Talk
+                    </button>
+                      </DialogFooter>
+                </DialogContent>
+
+              </Dialog>
               ))}
             </div>
           </div>

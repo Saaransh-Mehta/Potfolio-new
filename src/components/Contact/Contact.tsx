@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import axios from 'axios';
+
 
 const Contact = () => {
   const [selectedServices, setSelectedServices] = useState<string[]>(['Mobile App']);
@@ -26,9 +28,16 @@ const Contact = () => {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async(e: React.FormEvent) => {
     e.preventDefault();
-    console.log({ ...formData, services: selectedServices });
+    const response = await axios.post('http://localhost:5000/api/send',{
+      fromEmail:formData.email,
+      name:formData.name,
+      company:formData.company,
+      services:selectedServices
+    });
+    console.log(response.data);
+
   };
 
   return (
@@ -159,6 +168,7 @@ const Contact = () => {
             </div>
 
             <button
+            onClick={handleSubmit}
               type="submit"
               className="bg-black outfit text-white px-10 py-4 rounded-full text-base font-medium hover:bg-gray-800 transition-colors"
             >

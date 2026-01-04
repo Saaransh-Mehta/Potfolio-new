@@ -1,3 +1,5 @@
+import { Element } from "react-scroll";
+
 const Experience = () => {
   const experiences = [
     {
@@ -24,7 +26,9 @@ const Experience = () => {
   ];
 
   return (
-    <section className="py-20 px-8 bg-gray-50 relative overflow-hidden">
+    <Element name="exp">
+
+    <section  id="exp" className="py-20 px-8 bg-gray-50 relative overflow-hidden">
       <div className="max-w-[1400px] mx-auto">
         {/* Decorative Elements */}
         {/* Animated pulsing dot at top center */}
@@ -97,7 +101,7 @@ My experience lies at the intersection of engineering and product thinking. I do
                 exp.dark
                   ? 'bg-black text-white'
                   : 'bg-white border-2 border-gray-200'
-              } p-8 flex items-center justify-between hover:scale-[1.02] transition-transform`}
+                } p-8 flex items-center justify-between hover:scale-[1.02] transition-transform`}
             >
               <div className="flex items-center gap-6">
                 {/* Number Badge */}
@@ -128,6 +132,7 @@ My experience lies at the intersection of engineering and product thinking. I do
         </div>
       </div>
     </section>
+          </Element>
   );
 };
 

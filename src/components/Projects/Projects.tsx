@@ -2,24 +2,27 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      category: "WEB DESIGN",
-      title: "Innovative designer for a digital age",
+      category: "FULL STACK DEVELOPMENT",
+      title: "Building a modern web based video streaming platform. ",
       image: "https://images.unsplash.com/photo-1530435460869-d13625c69bbf?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTAwNDR8MHwxfHNlYXJjaHw0fHxNb2Rlcm4lMjB3ZWIlMjBkZXNpZ24lMjBwb3J0Zm9saW8lMjB3ZWJzaXRlJTIwbW9ja3VwJTIwc2hvd2luZyUyMGRlc2lnbmVyJTIwcHJvZmlsZSUyMHdpdGglMjBjbGVhbiUyMGxheW91dCUyMHBvcnRmb2xpbyUyMGRlc2lnbiUyMG1vY2t1cHxlbnwwfDB8fHwxNzY2ODQ1ODA3fDA&ixlib=rb-4.1.0&q=85",
-      attribution: "Pankaj Patel on Unsplash"
+      attribution: "project_1",
+      link:"https://first-tube.vercel.app/"
     },
     {
       id: 2,
-      category: "WEB DESIGN",
-      title: "Web Design for fintech payment solutions.",
+      category: "FULL STACK DEVELOPMENT",
+      title: "Built a backend workflow which process jobs in a queue system. ",
       image: "https://images.unsplash.com/photo-1726066012801-14d892021339?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTAwNDR8MHwxfHNlYXJjaHwxOHx8RmludGVjaCUyMHBheW1lbnQlMjBtb2JpbGUlMjBhcHAlMjBpbnRlcmZhY2UlMjBtb2NrdXAlMjB3aXRoJTIwbW9kZXJuJTIwVUklMjBkZXNpZ24lMjBtb2JpbGUlMjBpbnRlcmZhY2UlMjBmaW50ZWNofGVufDB8MXx8fDE3NjY4NDU4MDZ8MA&ixlib=rb-4.1.0&q=85",
-      attribution: "SumUp on Unsplash"
+      attribution: "backend_workflow",
+      link:"https://github.com/Saaransh-Mehta/backend-automation-engine-workflow"
     },
     {
       id: 3,
-      category: "WEB DESIGN",
-      title: "Minimal Agency website for startups business.",
+      category: "AI & GEN AI",
+      title: "Resume Builder that uses AI to help you create a professional resume in minutes. ",
       image: "https://images.pexels.com/photos/4134791/pexels-photo-4134791.jpeg",
-      attribution: "Andrew Neel on Pexels"
+      attribution: "Resume_builder",
+      link:"https://github.com/Saaransh-Mehta/ai-resume-builder"
     }
   ];
 
@@ -45,7 +48,7 @@ const Projects = () => {
         {/* Header */}
         <div className="text-center mb-16 relative z-10">
           <h2 className="text-7xl font-bold mb-6 bbh-bartle-regular">PROJECTS</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto text-lg">
+        <p className="text-gray-600 max-w-2xl mx-auto outfit">
             I build projects that solve real problems and reflect production-level thinking — from system design and data modeling to performance, scalability, and user experience. Each project is treated as a product, not a demo, with deliberate technical trade-offs and continuous iteration.
         </p>
         </div>
@@ -90,7 +93,7 @@ const Projects = () => {
                     href="#" 
                     className="inline-flex outfit items-center gap-2 text-lg font-medium border-b-2 border-black pb-1 hover:gap-4 transition-all w-fit"
                   >
-                    <span>See Details</span>
+                    <a target="_blank" href={project.link}><span>See Details</span></a>
                     <svg 
                       className="w-6 h-6" 
                       fill="none" 
